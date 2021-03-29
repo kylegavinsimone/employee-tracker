@@ -1,4 +1,5 @@
 # employee-tracker
+
 Unit 12 MySQL Homework: Employee Tracker
 Developers are often tasked with creating interfaces that make it easy for non-developers to view and interact with information stored in databases. Often these interfaces are known as Content Management Systems. In this homework assignment, your challenge is to architect and build a solution for managing a company's employees using node, inquirer, and MySQL.
 
@@ -32,16 +33,6 @@ View departments, roles, employees
 
 Update employee roles
 
-Bonus points if you're able to:
-
-Update employee managers
-
-View employees by manager
-
-Delete departments, roles, and employees
-
-View the total utilized budget of a department -- ie the combined salaries of all employees in that department
-
 We can frame this challenge as follows:
 
 As a business owner
@@ -70,30 +61,6 @@ Review the week's activities for a refresher on MySQL.
 
 Check out SQL Bolt for some extra MySQL help.
 
-Minimum Requirements
-Functional application.
-
-GitHub repository with a unique name and a README describing the project.
-
-The command-line application should allow users to:
-
-Add departments, roles, employees
-
-View departments, roles, employees
-
-Update employee roles
-
-Bonus
-The command-line application should allow users to:
-
-Update employee managers
-
-View employees by manager
-
-Delete departments, roles, and employees
-
-View the total utilized budget of a department -- ie the combined salaries of all employees in that department
-
 Commit Early and Often
 One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
 
@@ -112,8 +79,6 @@ Don't commit half-done work, for the sake of your collaborators (and your future
 Test your application before you commit to ensure functionality at every step in the development process.
 
 We would like you to have well over 200 commits by graduation, so commit early and often!
-
-Important: You will be committing a file that contains your database credentials. Make sure your MySQL password is not used for any other personal accounts, because it will be visible on GitHub. In upcoming lessons, you will learn how to better secure this password, or you can start researching npm packages now that could help you.
 
 Submission on BCS
 You are required to submit the following:
