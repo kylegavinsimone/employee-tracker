@@ -4,12 +4,12 @@ USE employeeTracker;
 
 CREATE TABLE departments (
 -- id 
+ID int NOT NULL,
 -- - INT PRIMARY KEY
+  PRIMARY KEY (ID) 
     -- name -  -- VARCHAR(30)
-    ID int NOT NULL,
     LastName varchar(30) NOT NULL,
     FirstName varchar(30),
-    PRIMARY KEY (ID)
 )
 
 CREATE TABLE roles (
