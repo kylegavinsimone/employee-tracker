@@ -6,7 +6,7 @@ CREATE TABLE departments (
 -- id 
 ID int NOT NULL,
 -- - INT PRIMARY KEY
-  PRIMARY KEY (ID) 
+  PRIMARY KEY (ID), 
     -- name -  -- VARCHAR(30)
     LastName varchar(30) NOT NULL,
     FirstName varchar(30),
