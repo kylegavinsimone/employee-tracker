@@ -6,9 +6,9 @@ CREATE TABLE departments (
 -- id 
 ID INT auto_increment not null,
 -- - INT PRIMARY KEY
-  PRIMARY KEY (ID), 
-    -- name -  -- VARCHAR(30)
-   name varchar(30)
+PRIMARY KEY (ID), 
+ -- name -  -- VARCHAR(30)
+name varchar(30)
 )
 
 CREATE TABLE roles (
@@ -16,8 +16,6 @@ CREATE TABLE roles (
 ID INT auto_increment not null,
 -- title - VARCHAR(30) to hold role title
 title varchar(30),
--- salary - DECIMAL to hold role salary
-
 -- department_id - INT to hold reference to department role belongs to  
 department_id int
 )
@@ -25,7 +23,7 @@ department_id int
 CREATE TABLE employees (
 -- id - INT PRIMARY KEY
   ID INT auto_increment not null,
-  PRIMARY KEY (id),
+PRIMARY KEY (id),
 -- first_name - VARCHAR(30) to hold employee first name
 first_name varchar(30),
 -- last_name - VARCHAR(30) to hold employee last name
