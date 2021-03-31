@@ -1,6 +1,7 @@
 const mysql = require("mysql");
 const util = require("util");
 const inquirer = require("inquirer");
+const viewData = require("./commands/see");
 const connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
@@ -23,27 +24,20 @@ const init = async function () {
       ],
     },
   ]);
-};
+}
+.then(function (response) {
+    switch (response.userOptions) {
+      case "See data":
+        viewData();
+        break;
+      case "Create new data":
+        createData();
+        break;
+      case "Exit":
+      default:
+        connection.end();
+    }
+  });
 
-// switch (action) {
-//   case "See data":
-//     await seeData(connection);
-//     init();
-//     break;
-//   case "Create new data":
-//     await createData(connection);
-//     init();
-//     break;
-//   case "Update employee":
-//     await updateData(connection);
-//     init();
-//     break;
-//   case "Delete data":
-//     await deleteData(connection);
-//     init();
-//     break;
-//   default:
-//     connection.end();
-//     break;
-// } not working correctly 
+
 init();
