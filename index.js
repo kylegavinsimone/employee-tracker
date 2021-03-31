@@ -18,27 +18,21 @@ const init = async function () {
       type: "list",
       name: "action",
       message: "Which would you like to do?",
-      choices: [
-        "See data",
-        "Update employee",
-        "Create new data",
-      ],
+      choices: ["See data", "Update employee", "Create new data"],
     },
   ]);
-}
-.then(function (response) {
-    switch (response.userOptions) {
-      case "See data":
-        see();
-        break;
-      case "Create new data":
-        create();
-        break;
-      case "Exit":
-      default:
-        connection.end();
-    }
-  });
-
+}.then(function (response) {
+  switch (response.userOptions) {
+    case "See data":
+      see();
+      break;
+    case "Create new data":
+      create();
+      break;
+    case "Exit":
+    default:
+      connection.end();
+  }
+});
 
 init();
