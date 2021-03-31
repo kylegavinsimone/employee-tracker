@@ -1,7 +1,10 @@
 const mysql = require("mysql");
 const util = require("util");
 const inquirer = require("inquirer");
-const viewData = require("./commands/see");
+const createData = require("./commands/create");
+const deleteData = require("./commands/delete");
+const seeData = require("./commands/see");
+const updateData = require("./commands/update");
 const connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
@@ -28,7 +31,7 @@ const init = async function () {
 .then(function (response) {
     switch (response.userOptions) {
       case "See data":
-        viewData();
+        seeData();
         break;
       case "Create new data":
         createData();

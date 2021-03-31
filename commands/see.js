@@ -1,30 +1,30 @@
 const inquirer = require("inquirer");
-const viewEmployeeData = require('./viewEmployeeData')
-const viewData = async function (connection) {
+const viewEmployeeData = require('./viewEmployeesData')
+const seeData = async function (connection) {
     const { table } = await inquirer.prompt([{
         type: "list",
         name: "table",
         message: "Which table shall we view?",
         choices: [
-            "department",
-            "role",
-            "employee",
+            "departments",
+            "roles",
+            "employees",
             "back"
         ]
     }])
     switch (table) {
-        case "department":
-            const departmentTable = await connection.query("SELECT name as department FROM department")
+        case "departments":
+            const departmentTable = await connection.query("SELECT name as department FROM departments")
             console.table(departmentTable)
             break;
-        case "role":
-            const roleTable = await connection.query("SELECT title name AS department from role left join department on role.department_id = department.id ORDER BY DEPARTMENT;")
+        case "roles":
+            const roleTable = await connection.query("SELECT title name AS department from role left join department on role.departments_id = departments.id ORDER BY DEPARTMENT;")
             console.table(roleTable)
             break;
-        case "employee":
-            await viewEmployeeData(connection);
+        case "employees":
+            await seeEmployeesData(connection);
             break;
     }
 
 }
-module.exports = viewData;
+module.exports = seeData;
