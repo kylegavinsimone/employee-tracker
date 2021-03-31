@@ -5,12 +5,9 @@ CREATE DATABASE employeeTracker;
 USE employeeTracker;
 
 CREATE TABLE departments (
--- id 
-ID INT auto_increment not null,
--- - INT PRIMARY KEY
-PRIMARY KEY (ID), 
- -- name -  -- VARCHAR(30)
-name varchar(30)
+  department_id INT UNSIGNED AUTO_INCREMENT,
+  department_name VARCHAR(30) UNIQUE NOT NULL,
+  PRIMARY KEY (department_id)
 );
 
 CREATE TABLE roles (
@@ -21,7 +18,7 @@ PRIMARY KEY (ID),
 
 title varchar(30),
 -- department_id - INT to hold reference to department role belongs to  
-departments_id int
+departments int
 );
 
 CREATE TABLE employees (
