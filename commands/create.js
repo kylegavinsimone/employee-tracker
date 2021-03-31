@@ -49,4 +49,4 @@ const employeesQ = [
   },
 ];
 
-module.exports = createData;
+module.exports = create;
