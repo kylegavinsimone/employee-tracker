@@ -21,7 +21,7 @@ PRIMARY KEY (ID),
 
 title varchar(30),
 -- department_id - INT to hold reference to department role belongs to  
-department_id int
+departments_id int
 );
 
 CREATE TABLE employees (

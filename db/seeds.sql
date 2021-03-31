@@ -6,7 +6,7 @@ INSERT INTO departments (name) VALUES
 ('Worker')
 ;
 
-INSERT INTO role (title, departments_id) VALUES 
+INSERT INTO roles (title, department_id) VALUES 
 ('Boss', 1),
 ('Supervisor', 2),
 ('Recruit', 3)
