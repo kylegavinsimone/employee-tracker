@@ -25,25 +25,25 @@ const init = async function () {
   ]);
 };
 
-switch (action) {
-  case "See data":
-    await seeData(connection);
-    init();
-    break;
-  case "Create new data":
-    await createData(connection);
-    init();
-    break;
-  case "Update employee":
-    await updateData(connection);
-    init();
-    break;
-  case "Delete data":
-    await deleteData(connection);
-    init();
-    break;
-  default:
-    connection.end();
-    break;
-}
+// switch (action) {
+//   case "See data":
+//     await seeData(connection);
+//     init();
+//     break;
+//   case "Create new data":
+//     await createData(connection);
+//     init();
+//     break;
+//   case "Update employee":
+//     await updateData(connection);
+//     init();
+//     break;
+//   case "Delete data":
+//     await deleteData(connection);
+//     init();
+//     break;
+//   default:
+//     connection.end();
+//     break;
+// } not working correctly 
 init();
