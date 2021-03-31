@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS employeeTracker_db;
+
 CREATE DATABASE employeeTracker;
 
 USE employeeTracker;
@@ -9,16 +11,18 @@ ID INT auto_increment not null,
 PRIMARY KEY (ID), 
  -- name -  -- VARCHAR(30)
 name varchar(30)
-)
+);
 
 CREATE TABLE roles (
 -- id - INT PRIMARY KEY
 ID INT auto_increment not null,
 -- title - VARCHAR(30) to hold role title
+PRIMARY KEY (ID),
+
 title varchar(30),
 -- department_id - INT to hold reference to department role belongs to  
 department_id int
-)
+);
 
 CREATE TABLE employees (
 -- id - INT PRIMARY KEY
@@ -33,4 +37,4 @@ role_id int,
 -- manager_id - INT to hold reference to another employee that manages the employee being Created. This field may be null if the employee has no manager
 manager_id int
     
-)
+    )
