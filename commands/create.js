@@ -1,8 +1,8 @@
 const inquirer = require("inquirer");
 const cTable = require("console.table");
-const findId = require("./findId");
+// const findId = require("./seeId");
 
-const departmentQ = [
+const departmentsQ = [
   {
     type: "input",
     message: "which department?",
@@ -10,7 +10,7 @@ const departmentQ = [
   },
 ];
 
-const roleQ = [
+const rolesQ = [
   {
     type: "input",
     message: "what is the title?",
@@ -24,7 +24,7 @@ const roleQ = [
   },
 ];
 
-const employeeQ = [
+const employeesQ = [
   {
     type: "input",
     message: "first name?",
@@ -49,4 +49,4 @@ const employeeQ = [
   },
 ];
 
-module.exports = addData;
+module.exports = createData;

@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const viewEmployeeData = require('./viewEmployeesData')
+const viewEmployeesData = require('./viewEmployeesData')
 const seeData = async function (connection) {
     const { table } = await inquirer.prompt([{
         type: "list",
@@ -14,12 +14,12 @@ const seeData = async function (connection) {
     }])
     switch (table) {
         case "departments":
-            const departmentTable = await connection.query("SELECT name as department FROM departments")
-            console.table(departmentTable)
+            const departmentsTable = await connection.query("SELECT name as department FROM departments")
+            console.table(departmentsTable)
             break;
         case "roles":
-            const roleTable = await connection.query("SELECT title name AS department from role left join department on role.departments_id = departments.id ORDER BY DEPARTMENT;")
-            console.table(roleTable)
+            const rolesTable = await connection.query("SELECT title name AS department from role left join department on role.departments_id = departments.id ORDER BY DEPARTMENT;")
+            console.table(rolesTable)
             break;
         case "employees":
             await seeEmployeesData(connection);

@@ -2,7 +2,6 @@ const mysql = require("mysql");
 const util = require("util");
 const inquirer = require("inquirer");
 const createData = require("./commands/create");
-const deleteData = require("./commands/delete");
 const seeData = require("./commands/see");
 const updateData = require("./commands/update");
 const connection = mysql.createConnection({
@@ -23,7 +22,6 @@ const init = async function () {
         "See data",
         "Update employee",
         "Create new data",
-        "Delete data",
       ],
     },
   ]);
