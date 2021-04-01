@@ -35,8 +35,7 @@ const init = async function () {
 const getRoles = async function () {
   return await connection.query(
     "SELECT role.id AS id, title, salary, name AS department FROM role LEFT JOIN department ON role.department_id = department.id"
-  )
-  ;
+  );
 };
 
 const addRole = async function () {
@@ -76,44 +75,44 @@ const getDepartments = async function () {
 };
 
 function addDepartment() {
-    inquirer
-      .prompt([
-        {
-          type: "input",
-          name: "department_name",
-          message: "What is the department?",
-        },
-      ])
-      .then((answers) => {
-        connection.query(
-          "INSERT INTO department SET ?",
-          answers,
-          function (err, data) {
-            if (err) throw err;
-            console.table(data);
-            viewDepartments();
-            init();
-          }
-        );
-      });
-  }
-  function viewEmployee() {
-    connection.query("SELECT * FROM employee", function (err, data) {
-      if (err) throw err;
-      console.table(data);
-      init();
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "department_name",
+        message: "What is the department?",
+      },
+    ])
+    .then((answers) => {
+      connection.query(
+        "INSERT INTO department SET ?",
+        answers,
+        function (err, data) {
+          if (err) throw err;
+          console.table(data);
+          viewDepartments();
+          init();
+        }
+      );
     });
-  }
-  
-  function addEmployee() {
-    connection.query("SELECT * FROM role", function (err, data) {
-      if (err) throw err;
-      const roles = [
-        ...data.map((role) => ({
-          value: role.role_id,
-          name: role.title,
-        })),
-      ];
+}
+function viewEmployee() {
+  connection.query("SELECT * FROM employee", function (err, data) {
+    if (err) throw err;
+    console.table(data);
+    init();
+  });
+}
+
+function addEmployee() {
+  connection.query("SELECT * FROM role", function (err, data) {
+    if (err) throw err;
+    const roles = [
+      ...data.map((role) => ({
+        value: role.role_id,
+        name: role.title,
+      })),
+    ];
     inquirer
       .prompt([
         {
@@ -145,6 +144,5 @@ function addDepartment() {
           }
         );
       });
-    });
-  }
-
+  });
+}
