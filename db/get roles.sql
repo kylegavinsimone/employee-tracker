@@ -1,3 +1,4 @@
-SELECT * FROM roles
+SELECT * FROM role;
 
-INSERT INTO roles (title, departments) 
+INSERT INTO role (title, salary, department_id) 
+VALUES ('Boss', 50000, 1);
