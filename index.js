@@ -35,15 +35,11 @@ const init = async function () {
 const getRoles = async function () {
   return await connection.query(
     "SELECT role.id AS id, title, salary, name AS department FROM role LEFT JOIN department ON role.department_id = department.id"
-  );
-};
-
-const getDepartments = async function () {
-  return await connection.query("SELECT * FROM department ORDER BY id");
+  )
+  ;
 };
 
 const addRole = async function () {
-  // Go and get all departments
   const departments = await getDepartments();
 
   const { title, salary, department_id } = await inquirer.prompt([
@@ -75,4 +71,80 @@ const addRole = async function () {
   console.log("Role added!");
 };
 
-init();
+const getDepartments = async function () {
+  return await connection.query("SELECT * FROM department ORDER BY id");
+};
+
+function addDepartment() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "department_name",
+          message: "What is the department?",
+        },
+      ])
+      .then((answers) => {
+        connection.query(
+          "INSERT INTO department SET ?",
+          answers,
+          function (err, data) {
+            if (err) throw err;
+            console.table(data);
+            viewDepartments();
+            init();
+          }
+        );
+      });
+  }
+  function viewEmployee() {
+    connection.query("SELECT * FROM employee", function (err, data) {
+      if (err) throw err;
+      console.table(data);
+      init();
+    });
+  }
+  
+  function addEmployee() {
+    connection.query("SELECT * FROM role", function (err, data) {
+      if (err) throw err;
+      const roles = [
+        ...data.map((role) => ({
+          value: role.role_id,
+          name: role.title,
+        })),
+      ];
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "first_name",
+          message: "Enter first name.",
+        },
+        {
+          type: "input",
+          name: "last_name",
+          message: "Enter last name.",
+        },
+        {
+          type: "list",
+          name: "role_id",
+          message: "Enter role",
+          choices: roles,
+        },
+      ])
+      .then((answers) => {
+        connection.query(
+          "INSERT INTO employee SET ?",
+          answers,
+          function (err, data) {
+            if (err) throw err;
+            console.table(data);
+            viewEmployee();
+            init();
+          }
+        );
+      });
+    });
+  }
+
