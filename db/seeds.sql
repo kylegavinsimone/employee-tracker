@@ -1,24 +1,19 @@
-USE employeeTracker_db;
+USE employeeTracker;
 
-INSERT INTO departments (name) VALUES 
+INSERT INTO department (name) VALUES 
 ('Manager'),
 ('Foreman'),
-('Worker')
-;
+('Worker');
 
-INSERT INTO roles (title, departments) VALUES 
-('Boss', 1),
-('Supervisor', 2),
-('Recruit', 3)
-;
+INSERT INTO role (title, salary, department_id) VALUES 
+('Boss', 50000, 1),
+('Supervisor', 70000, 2),
+('Recruit', 40000, 3);
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES 
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES 
 ('Parker', 'Peter', 1, null),
 ('Grey', 'Jean', 1, 1),
-
 ('Summers', 'Scott', 2, null),
 ('Brock', 'Eddie', 2, 2),
-
 ('Rodgers', 'Steve', 3, null),
-('Stark', 'Tony', 3, 3)
-
+('Stark', 'Tony', 3, 3);
