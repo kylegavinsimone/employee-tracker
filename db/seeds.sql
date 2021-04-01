@@ -6,13 +6,13 @@ INSERT INTO departments (name) VALUES
 ('Worker')
 ;
 
-INSERT INTO roles (title, department_id) VALUES 
+INSERT INTO roles (title, departments) VALUES 
 ('Boss', 1),
 ('Supervisor', 2),
 ('Recruit', 3)
 ;
 
-INSERT INTO employees (first_name, last_name, roles_id, manager_id) VALUES 
+INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES 
 ('Parker', 'Peter', 1, null),
 ('Grey', 'Jean', 1, 1),
 
