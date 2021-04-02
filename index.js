@@ -7,7 +7,13 @@ const init = async function () {
       type: "list",
       name: "action",
       message: "Which would you like to do?",
-      choices: ["Add Role", "View Role", "Exit"],
+      choices: [
+        "Add Role",
+        "Add Department",
+        "View Role",
+        "View Employees",
+        "Exit",
+      ],
     },
   ]);
 
@@ -16,10 +22,19 @@ const init = async function () {
       // Add a role
       await addRole();
       break;
+    case "Add Department":
+      // Add a department
+      await addDepartment();
+      break;
     case "View Role":
       // View all roles
       const roles = await getRoles();
       console.table(roles);
+      break;
+    case "View Employees":
+      // View all roles
+      const employees = await getEmployees();
+      console.table(employees);
       break;
     case "View Departments":
       // View all roles
@@ -31,6 +46,8 @@ const init = async function () {
   }
   init();
 };
+
+init();
 
 const getRoles = async function () {
   return await connection.query(
@@ -74,34 +91,20 @@ const getDepartments = async function () {
   return await connection.query("SELECT * FROM department ORDER BY id");
 };
 
-function addDepartment() {
-  inquirer
-    .prompt([
-      {
-        type: "input",
-        name: "department_name",
-        message: "What is the department?",
-      },
-    ])
-    .then((answers) => {
-      connection.query(
-        "INSERT INTO department SET ?",
-        answers,
-        function (err, data) {
-          if (err) throw err;
-          console.table(data);
-          viewDepartments();
-          init();
-        }
-      );
-    });
+async function addDepartment() {
+  const answers = await inquirer.prompt([
+    {
+      type: "input",
+      name: "name",
+      message: "What is the department?",
+    },
+  ]);
+
+  await connection.query("INSERT INTO department SET ?", answers);
 }
-function viewEmployee() {
-  connection.query("SELECT * FROM employee", function (err, data) {
-    if (err) throw err;
-    console.table(data);
-    init();
-  });
+
+async function getEmployees() {
+  return await connection.query("SELECT * FROM employee");
 }
 
 function addEmployee() {
